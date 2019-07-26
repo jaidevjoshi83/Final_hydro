@@ -21,7 +21,7 @@ rule step1:
       "jai.yaml"   
 
     shell:
-        "python2.7 /Final_hydro/bin/step1/prepare_flood_events_table_NEW.py -I {input} -O {output}"
+        "python2.7 /Final_hydro/bin/prepare_flood_events_table_NEW.py -I {input} -O {output}"
 
 rule step2:
     input:
@@ -31,7 +31,7 @@ rule step2:
     conda:
       "jai.yaml"
     shell:
-        "python2.7 /Final_hydro/bin/step2/make_dly_obs_table_standalone_NEW.py -I {input} -O {output}"
+        "python2.7 /Final_hydro/bin//make_dly_obs_table_standalone_NEW.py -I {input} -O {output}"
 
 rule step3:
     input:
@@ -42,7 +42,7 @@ rule step3:
     conda:
       "jai.yaml"
     shell:
-        "python2.7 /Final_hydro/bin/step3/by_event_for_model_NEW.py -i {input.i_1} -I {input.i_2} -O {output}" 
+        "python2.7 /Final_hydro/bin/by_event_for_model_NEW.py -i {input.i_1} -I {input.i_2} -O {output}" 
    
 rule step4:
     input:
@@ -55,5 +55,5 @@ rule step4:
         config['data']+"/out_files/step4/rf_impo_out"
 
     shell:
-        "Rscript /Final_hydro/bin/step4/model_flood_counts_rf_ps_cln_NEW.r {input} /data/step4" 
+        "Rscript /Final_hydro/bin/model_flood_counts_rf_ps_cln_NEW.r {input} /data/step4" 
 
