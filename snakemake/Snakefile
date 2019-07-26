@@ -55,5 +55,5 @@ rule step4:
         config['data']+"/out_files/step4/rf_impo_out"
 
     shell:
-        "Rscript /Final_hydro/bin/model_flood_counts_rf_ps_cln_NEW.r {input} /data/step4" 
+        "Rscript /Final_hydro/bin/model_flood_counts_rf_ps_cln_NEW.r {input} /Final_hydro/out_files/step4" 
 
